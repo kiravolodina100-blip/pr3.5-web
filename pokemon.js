@@ -15,11 +15,11 @@ export class Pokemon extends Selectors {
         this.renderHP();
     }
 
-    renderHPLife = () => {
+    renderHPLife() {
         this.elHP.innerText = `${this.damageHP} / ${this.defaultHP}`;
     }
 
-    renderProgressbar = () => {
+    renderProgressbar() {
         const percent = (this.damageHP * 100) / this.defaultHP;
         this.elProgressbar.style.width = percent + '%';
         
@@ -31,12 +31,17 @@ export class Pokemon extends Selectors {
         }
     }
 
-    render = () => {
+    render() {
         this.renderHPLife();
         this.renderProgressbar();
     }
 
-    changeHP = (count, cb) => {
+    renderHP() {
+        this.renderHPLife();
+        this.renderProgressbar();
+    }
+
+    changeHP(count, cb) {
         this.damageHP -= count;
 
         if (this.damageHP <= 0) {
